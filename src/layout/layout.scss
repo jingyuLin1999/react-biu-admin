@@ -24,9 +24,8 @@
         font-weight: 600;
       }
     }
-    .sider-menu {
-      position: relative;
-      height: calc(100vh-50px);
+    .ps {
+      height: calc(100vh - 65px);
     }
   }
   > .site-layout {
@@ -86,7 +85,9 @@
       padding: 0 24px;
       min-height: 280;
       padding: 10px;
-      height: calc(100vh-109px) !important;
+    }
+    .ps {
+      height: calc(100vh - 109px);
     }
   }
 }

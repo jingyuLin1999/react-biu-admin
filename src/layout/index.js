@@ -65,9 +65,11 @@ class layout extends Component {
                         <div className="logo"></div>
                         {collapsed ? "" : <span className="site-title">Biu Admin</span>}
                     </div>
-                    <Menu theme="light" className='sider-menu' mode="inline" defaultSelectedKeys={['1']}>
-                        {this.generateMenus(routers)}
-                    </Menu>
+                    <PerfectScrollbar>
+                        <Menu theme="light" className='sider-menu' mode="inline" defaultSelectedKeys={['1']}>
+                            {this.generateMenus(routers)}
+                        </Menu>
+                    </PerfectScrollbar>
                 </Sider>
                 <Layout className="site-layout">
                     <Header className="header-wrapper" style={{ padding: 0 }}>
