@@ -1,0 +1,68 @@
+.layout {
+  height: 100%;
+  > .sider-wrapper {
+    height: 100%;
+    background: #fff;
+    .logo-wrapper {
+      background: #fff;
+      height: 64px;
+      border-bottom: 1px solid #f0f0f0;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .logo {
+        width: 45px;
+        height: 35px;
+        background: url("../assets/logo.svg") no-repeat;
+        background-size: 50px 40px;
+      }
+      .site-title{
+          font-size: 22px;
+          color: #117FFF;
+          margin-left: 5px;
+          font-weight: 600;
+      }
+    }
+    .sider-menu {
+      position: relative;
+      height: calc(100vh-"50px");
+    }
+  }
+  > .site-layout {
+    position: relative;
+    height: 100%;
+    .header-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      > .trigger {
+        height: 64px;
+        line-height: 64px;
+        font-size: 19px;
+        cursor: pointer;
+        transition: color 0.8s;
+        opacity: 0.6;
+      }
+      > .right-tools {
+        margin-right: 20px;
+      }
+    }
+    .breadcrumb {
+      padding: 0 15px;
+      height: 45px;
+      line-height: 45px;
+    }
+    .site-content {
+      position: relative;
+      background: #fff;
+      margin: 0 15px;
+      padding: 0 24px;
+      min-height: 280;
+      padding: 10px;
+    }
+    .site-footer {
+    }
+  }
+}

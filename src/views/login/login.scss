@@ -1,0 +1,29 @@
+.login-wrapper {
+  background: #f7f7f7;
+  height: 100%;
+  position: relative;
+  .login-form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 320px;
+    height: 320px;
+    box-shadow: 0 0 12px #ddd;
+    box-sizing: border-box;
+    padding: 25px;
+    .logo-wrapper {
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      .site-logo {
+        font-size: 25px;
+        color: #117fff;
+        margin-left: 5px;
+        font-weight: 600;
+      }
+    }
+  }
+}
