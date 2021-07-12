@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 class Simple extends PureComponent {
     render() {
-        return (<div>simpletable</div>)
+        return (<div style={{ 'height': '100%' }}>simpletable</div>)
     }
 }
 

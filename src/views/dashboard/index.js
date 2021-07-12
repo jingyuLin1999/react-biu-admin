@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import "./dashboard.scss";
 
 class Home extends PureComponent {
     render() {
         return (
-            <div>
+            <div className="dashboard-wrapper">
                 home
             </div>
         )

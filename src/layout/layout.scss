@@ -86,8 +86,7 @@
       padding: 0 24px;
       min-height: 280;
       padding: 10px;
-    }
-    .site-footer {
+      height: calc(100vh-109px) !important;
     }
   }
 }

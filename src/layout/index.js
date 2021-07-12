@@ -2,9 +2,11 @@ import React, { Component, Fragment } from "react";
 import PropTypes from 'prop-types'
 import { Route, Link } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb, Avatar, Dropdown } from 'antd';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import * as icon from '@ant-design/icons';
 import { routers } from "@/router"
 import "./layout.scss";
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 const { SubMenu } = Menu;
 const { Header, Sider, Content, Footer } = Layout;
@@ -42,7 +44,7 @@ class layout extends Component {
         let normalData = data.reverse();
         return normalData.map(item => {
             return (
-                <Breadcrumb.Item key={item.path}><Link to={item.path}>{item.title}</Link></Breadcrumb.Item>
+                <Breadcrumb.Item key={item.path}>{item.title}</Breadcrumb.Item>
             )
         })
     }
@@ -83,9 +85,11 @@ class layout extends Component {
                     <Breadcrumb className="breadcrumb">
                         {this.generateBreadcrumb(breadcrumb)}
                     </Breadcrumb>
-                    <Content className="site-content">
-                        <Route path={router.path} component={router.component}></Route>
-                    </Content>
+                    <PerfectScrollbar>
+                        <Content className="site-content">
+                            <Route path={router.path} component={router.component}></Route>
+                        </Content>
+                    </PerfectScrollbar>
                     <Footer className="site-footer">footer</Footer>
                 </Layout>
             </Layout>
