@@ -1,6 +1,6 @@
 
-import Home from "@/views/home"
 import Login from "@/views/login"
+import Dashboard from "@/views/dashboard"
 import Notfound from "@/views/errorPage/404"
 import Simple from "@/views/tables/simple"
 import Complex from "@/views/tables/complex"
@@ -18,28 +18,28 @@ export const routers = [
         id: 1,
         path: "/",
         title: "首页",
-        icon: "DashboardOutlined",
-        component: Home
+        icon: "DashboardOutlined", // 仅仅支持ant design图标
+        component: Dashboard
     },
     {
         id: 11,
         path: "/table",
         title: "表",
         icon: "TableOutlined",
-        component: Home,
+        component: Dashboard,
         children: [
             {
                 id: 22,
                 path: "/simple",
                 title: "简单表",
-                icon: "SmileOutlined",
+                icon: "DribbbleOutlined",
                 component: Simple,
             },
             {
                 id: 22,
                 path: "/complex",
                 title: "复杂表",
-                icon: "SmileOutlined",
+                icon: "DribbbleOutlined",
                 component: Complex,
             },
         ]

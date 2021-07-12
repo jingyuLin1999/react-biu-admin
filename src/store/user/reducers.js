@@ -15,7 +15,6 @@ export default handleActions({
         return state.mergeDeep(action.payload)
     },
     [actions.USER_LOGOUT]: (state, action) => {
-        // action.payload ? fromJS(action.payload) : state;
         return state.set("loginStatus", false)
     }
 }, initDatas)

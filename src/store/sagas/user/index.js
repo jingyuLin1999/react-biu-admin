@@ -7,10 +7,10 @@ function* authorize(payload) {
     try {
         // 返回有权限的路由，token,用户信息
         // const {permission,token,user} = yield call(Api.authorize, user, password)
-        let user = { username: "", avatar: '' };
+        let user = { username: "", avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80' };
         yield put(userLoginStatus({
             loginStatus: true,
-            permission: ['/',"/404"],
+            permission: ['/', "/404"],
             authorize: "kekrwrighudskjlfgdjkhesafyu",
             ...user
         }))

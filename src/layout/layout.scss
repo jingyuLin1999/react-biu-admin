@@ -17,11 +17,11 @@
         background: url("../assets/logo.svg") no-repeat;
         background-size: 50px 40px;
       }
-      .site-title{
-          font-size: 22px;
-          color: #117FFF;
-          margin-left: 5px;
-          font-weight: 600;
+      .site-title {
+        font-size: 22px;
+        color: #117fff;
+        margin-left: 5px;
+        font-weight: 600;
       }
     }
     .sider-menu {
@@ -47,6 +47,31 @@
       }
       > .right-tools {
         margin-right: 20px;
+        display: flex;
+        align-items: center;
+        .bell-outline {
+          font-size: 25px;
+          margin-right: 10px;
+          color: #b2b0c7;
+          cursor: pointer;
+          position: relative;
+        }
+        .bell-outline:hover {
+          color: #1890ff;
+        }
+        .bell-count::after {
+          content: "";
+          width: 5px;
+          height: 5px;
+          background: #f00;
+          position: absolute;
+          right: 0;
+          top: 0;
+          border-radius: 50%;
+        }
+        .avatar-wrapper {
+          cursor: pointer;
+        }
       }
     }
     .breadcrumb {

@@ -10,14 +10,6 @@ const { SubMenu } = Menu;
 const { Header, Sider, Content, Footer } = Layout;
 
 class layout extends Component {
-    state = {
-        collapsed: false,
-    };
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
     generateMenus = data => {
         return data.map(item => {
             if (item.hide) return null;
@@ -46,22 +38,30 @@ class layout extends Component {
             )
         })
     }
+    generateBreadcrumb = data => {
+        let normalData = data.reverse();
+        return normalData.map(item => {
+            return (
+                <Breadcrumb.Item key={item.path}><Link to={item.path}>{item.title}</Link></Breadcrumb.Item>
+            )
+        })
+    }
 
     render() {
-        const { router, logout } = this.props; // permission
+        const { router, logout, avatar, isNotify, breadcrumb, collapsed, collapsedFunc } = this.props;
         const menu = (
             <Menu>
                 <Menu.Item key="loginout">
-                    <span onClick={() => logout()}>登出</span>
+                    <span onClick={() => logout()}>logout</span>
                 </Menu.Item>
             </Menu>
         );
         return (
             <Layout className="layout">
-                <Sider className="sider-wrapper" trigger={null} collapsible collapsed={this.state.collapsed} width='230'>
+                <Sider className="sider-wrapper" trigger={null} collapsible collapsed={collapsed} width='230'>
                     <div className="logo-wrapper">
                         <div className="logo"></div>
-                        {this.state.collapsed ? "" : <span className="site-title"> Biu Admin</span>}
+                        {collapsed ? "" : <span className="site-title">Biu Admin</span>}
                     </div>
                     <Menu theme="light" className='sider-menu' mode="inline" defaultSelectedKeys={['1']}>
                         {this.generateMenus(routers)}
@@ -69,21 +69,19 @@ class layout extends Component {
                 </Sider>
                 <Layout className="site-layout">
                     <Header className="header-wrapper" style={{ padding: 0 }}>
-                        {React.createElement(this.state.collapsed ? icon.MenuUnfoldOutlined : icon.MenuFoldOutlined, {
+                        {React.createElement(collapsed ? icon.MenuUnfoldOutlined : icon.MenuFoldOutlined, {
                             className: 'trigger',
-                            onClick: this.toggle,
+                            onClick: () => { collapsedFunc() },
                         })}
                         <div className="right-tools">
+                            {React.createElement(icon.BellOutlined, { className: ['bell-outline', isNotify ? 'bell-count' : ''] })}
                             <Dropdown overlay={menu} placement="bottomRight" arrow>
-                                <Avatar size="large" icon={React.createElement(icon.UserOutlined)} />
+                                <Avatar size="large" className="avatar-wrapper" icon={React.createElement(icon.UserOutlined)} src={avatar} />
                             </Dropdown>
-
                         </div>
                     </Header>
                     <Breadcrumb className="breadcrumb">
-                        <Breadcrumb.Item>Home</Breadcrumb.Item>
-                        <Breadcrumb.Item>List</Breadcrumb.Item>
-                        <Breadcrumb.Item>App</Breadcrumb.Item>
+                        {this.generateBreadcrumb(breadcrumb)}
                     </Breadcrumb>
                     <Content className="site-content">
                         <Route path={router.path} component={router.component}></Route>
@@ -95,11 +93,21 @@ class layout extends Component {
     }
 }
 
-
 layout.propTypes = {
+    isNotify: PropTypes.bool, // 是否有通知
+    avatar: PropTypes.string, // 用户头像地址
     permission: PropTypes.array.isRequired,
-    router: PropTypes.object.isRequired,
-    logout: PropTypes.func,
+    router: PropTypes.object.isRequired, // 路由
+    logout: PropTypes.func, // 登出函数
+    breadcrumb: PropTypes.array, // 面包屑导航
+    collapsed: PropTypes.bool,
+    collapsedFunc: PropTypes.func, // 左侧面板是否缩起来
 }
+layout.defaultProps = {
+    isNotify: false,
+    breadcrumb: [],
+    collapsed: false,
+}
+
 export default layout;
 

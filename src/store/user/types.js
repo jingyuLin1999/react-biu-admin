@@ -1,4 +1,3 @@
-
 export const USER_LOGIN = 'USER_LOGIN'
 export const USER_LOGIN_STATUS = 'USER_LOGIN_STATUS'
 export const USER_LOGOUT = 'USER_LOGOUT'
