@@ -3,6 +3,9 @@
 
 [配置sass](https://www.jianshu.com/p/d3fbd9774931)  
 
+本地预览build的文件 npm i serve  
+serve -s build  
+
 # document
 [saga in chinese](https://redux-saga-in-chinese.js.org/docs/advanced/NonBlockingCalls.html)
 
